@@ -1,6 +1,31 @@
+Version 6
+[] it should have a function for toggling all todos
+[] if everything is false, then everything should change to true
+[] if everything is true, then everything should change to false
+[] if mixed, then everything should change to true
+
+
+Version 5
+[x] It should have a function to display todos
+[x] displayTodos should show the todoTExt property
+[x] displayTodos should show the completed property
+
+Version 4
+[x] it should have a function to toggle a todo
+
+Version 3
+[x] We should initialize the todos variable with objects
+[x] The add function should add objects
+[x] the edit function should edit objects
+
+Version 2
+[x] It should have a function to add a todo
+[x] It should have a function to edit a todo
+[x] It should have a function to remove a todo
+
 Version 1
 [x] it should have a place to store todos
-[] it should have a way to display todos
-[] it should have a way to add a todos
-[] it should have a way to edit a todo
-[] it should have a way to remove a todo
+[x] it should have a way to display todos
+[x] it should have a way to add a todos
+[x] it should have a way to edit a todo
+[x] it should have a way to remove a todo
