@@ -1,8 +1,14 @@
+Version 7
+[x] It should have a displayTodos buttons
+[x] the displayTodos button should run the displayTodos function
+[x] It should have a toggleAll button
+[x] the toggleAll button should run the toggleAll function
+
 Version 6
-[] it should have a function for toggling all todos
-[] if everything is false, then everything should change to true
-[] if everything is true, then everything should change to false
-[] if mixed, then everything should change to true
+[x] it should have a function for toggling all todos
+[x] if everything is false, then everything should change to true
+[x] if everything is true, then everything should change to false
+[x] if mixed, then everything should change to true
 
 
 Version 5

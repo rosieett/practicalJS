@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    var todos = [{
+        todoText: 'item 1',
+        completed: false
+      },
+      {
+        todoText: 'item 2',
+        completed: false
+      },
+      {
+        todoText: 'item 3',
+        completed: false
+      }
+    ]
+
+    function weirdToggleAll() {
+      var completedTodos = 0;
+      var allCompleted = true;
+
+      for (var i = 0; i < todos.length; i++) {
+        if (todos[i].completed !== false) {
+          completedTodos++;
+          console.log(completedTodos++;)
+        }
+        if (completedTodos !== i + 1) {
+          allCompleted = false;
+          console.log('allCompleted:'
+            allCompleted, 'completedTodos:'
+            completedTodos)
+
+        }
+      }
+      if (allCompleted === true) {
+        for (var i = 0; i < todos.length; i++) {
+          todos[i].completed = false;
+        }
+      } else {
+        for (var i = 0; i < todos.length; i++) {
+          todos[i].completed = true;
+        }
+      }
+      displayTodos();
+    }
+  </script>
+
+</body>
+
+</html>
