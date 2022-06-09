@@ -1,3 +1,9 @@
+Version 8
+[x] there should be a working button for add a todo.
+[] there should be a working button for edit a todo.
+[] there should be a working button for remove a todo.
+[] there should be a working button for toggle a todo.
+
 Version 7
 [x] It should have a displayTodos buttons
 [x] the displayTodos button should run the displayTodos function
