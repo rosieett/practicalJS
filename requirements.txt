@@ -1,3 +1,6 @@
+Version 9
+[x] there should be an li for each todo
+
 Version 8
 [x] there should be a working button for add a todo.
 [x] there should be a working button for edit a todo.

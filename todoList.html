@@ -25,6 +25,9 @@
   <input id="toggle-position-input">
   <button id="toggle-button">Toggle</button>
 
+  <ul id="todos-ul">
+  </ul>
+
 
   <script>
     var todos = [{
@@ -41,14 +44,6 @@
       }
     ]
 
-    // function add(initialTodoText) {
-    //   todos.push({
-    //     todoText: initialTodoText,
-    //     completed: false
-    //   });
-    //   displayTodos();
-    // }
-
     function add() {
       var initialTodoText = addInput.value;
       todos.push({
@@ -59,13 +54,7 @@
       displayTodos();
     }
 
-    // function edit(position, newValue) {
-    //   todos[position].todoText = newValue;
-    //   displayTodos();
-    // }
-
     function edit() {
-
       var position = editPositionInput.value;
       var newValue = editTextInput.value;
       todos[position].todoText = newValue;
@@ -117,10 +106,13 @@
     }
 
     function displayTodos() {
-      // console.log(todos);
+
+      var todoListUl = document.getElementById('todos-ul')
+
       for (var i = 0; i < todos.length; i++) {
-        console.log(todos[i])
-        // console.log(todos[i].completed)
+        var todoLi = document.createElement('li')
+        todoListUl.appendChild(todoLi);
+        console.log(todoLi)
       }
     }
 
