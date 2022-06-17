@@ -9,7 +9,6 @@
 <body>
 
 
-  <button id="display-todos-button">Display Todos</button>
   <button id="toggle-all-button">Toggle All</button>
 
   <input id="add-input">
@@ -19,11 +18,11 @@
   <input id="edit-text-input">
   <button id="edit-button">Edit</button>
 
-  <input id="remove-position-input">
-  <button id="remove-button">Remove</button>
-
+  <!-- <input id="remove-position-input">
+  <button id="remove-button">Remove</button> -->
+  <!-- 
   <input id="toggle-position-input">
-  <button id="toggle-button">Toggle</button>
+  <button id="toggle-button">Toggle</button> -->
 
   <ul id="todos-ul">
   </ul>
@@ -64,24 +63,15 @@
     }
 
 
-    function remove() {
-      var remove = removePositionInput.value;
-      todos.splice(remove, 1);
-      removePositionInput.value = '';
+    function remove(event) {
+      //getting the position from the id
+      var position = event.currentTarget.id;
+      todos.splice(position, 1);
       displayTodos();
     }
 
-    function toggle(position) {
-      var position = togglePositionInput.value;
-      if (todos[position].completed === false) {
-        todos[position].completed = true;
-      } else {
-        todos[position].completed = false;
-      }
-      togglePositionInput.value = '';
 
-      displayTodos();
-    }
+
 
     function toggleAll() {
       var completedTodos = 0;
@@ -105,21 +95,59 @@
       displayTodos();
     }
 
+    function toggle(event) {
+      var position = event.currentTarget.id;
+
+      if (todos[position].completed === false) {
+        todos[position].completed = true;
+      } else {
+        todos[position].completed = false;
+      }
+      console.log(position)
+      displayTodos();
+    }
+
     function displayTodos() {
 
       var todoListUl = document.getElementById('todos-ul')
 
+      // we want to clear out any existing lis inside of todosUl
+      todoListUl.innerHTML = '';
+
       for (var i = 0; i < todos.length; i++) {
-        var todoLi = document.createElement('li')
+
+        var todoLi = document.createElement('li');
+
+        if (todos[i].completed === true) {
+          todoLi.innerText = '[X] ' + todos[i].todoText;
+        } else {
+          todoLi.innerText = '[ ] ' + todos[i].todoText;
+        }
+
+        var removeButton = document.createElement('button');
+        removeButton.innerText = 'Remove';
+        removeButton.addEventListener('click', remove);
+        //creating an id for each item so the event listener on the remove button has a link from button to item
+        removeButton.id = 'remove-' + i;
+
+
+        var toggleButton = document.createElement('button');
+        toggleButton.innerText = 'Toggle';
+        toggleButton.addEventListener('click', toggle);
+
+        //store i on the id property of the toggle button
+        toggleButton.id = i;
+        toggleButton.id = 'toggle-' + i;
+
+        console.log(toggleButton)
+
+        todoLi.appendChild(toggleButton);
+        todoLi.appendChild(removeButton);
         todoListUl.appendChild(todoLi);
-        console.log(todoLi)
       }
     }
 
     displayTodos();
-
-    var displayTodosButton = document.getElementById('display-todos-button');
-    displayTodosButton.addEventListener('click', displayTodos);
 
     var toggleAllButton = document.getElementById('toggle-all-button');
     toggleAllButton.addEventListener('click', toggleAll)
@@ -133,13 +161,13 @@
     var editTextInput = document.getElementById('edit-text-input');
     editButton.addEventListener('click', edit);
 
-    var removeButton = document.getElementById('remove-button');
-    var removePositionInput = document.getElementById('remove-position-input');
-    removeButton.addEventListener('click', remove);
+    // var removeButton = document.getElementById('remove-button');
+    // var removePositionInput = document.getElementById('remove-position-input');
+    // removeButton.addEventListener('click', remove);
 
-    var toggleButton = document.getElementById('toggle-button');
-    var togglePositionInput = document.getElementById('toggle-position-input');
-    toggleButton.addEventListener('click', toggle);
+    // var toggleButton = document.getElementById('toggle-button');
+    // var togglePositionInput = document.getElementById('toggle-position-input');
+    // toggleButton.addEventListener('click', toggle);
   </script>
 </body>
 

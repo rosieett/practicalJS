@@ -1,5 +1,16 @@
+Version 11
+[x] each todo should have it's own toggle button
+[x] the toggle buttons should work
+
+Version 10 
+[x] each todo should have it's own remove button
+[x] the remove buttons should work
+
+
 Version 9
 [x] there should be an li for each todo
+[x] each li should show the todoTExt
+[x] each li should show the todoText completion
 
 Version 8
 [x] there should be a working button for add a todo.
