@@ -14,16 +14,6 @@
   <input id="add-input">
   <button id="add-button">Add</button>
 
-  <input id="edit-position-input">
-  <input id="edit-text-input">
-  <button id="edit-button">Edit</button>
-
-  <!-- <input id="remove-position-input">
-  <button id="remove-button">Remove</button> -->
-  <!-- 
-  <input id="toggle-position-input">
-  <button id="toggle-button">Toggle</button> -->
-
   <ul id="todos-ul">
   </ul>
 
@@ -53,19 +43,11 @@
       displayTodos();
     }
 
-    function edit() {
-      var position = editPositionInput.value;
-      var newValue = editTextInput.value;
-      todos[position].todoText = newValue;
-      editPositionInput.value = '';
-      editTextInput.value = '';
-      displayTodos();
-    }
 
 
     function remove(event) {
       //getting the position from the id
-      var position = event.currentTarget.id;
+      var position = event.currentTarget.id.split('-')[1];
       todos.splice(position, 1);
       displayTodos();
     }
@@ -96,7 +78,7 @@
     }
 
     function toggle(event) {
-      var position = event.currentTarget.id;
+      var position = event.currentTarget.id.split('-')[1];
 
       if (todos[position].completed === false) {
         todos[position].completed = true;
@@ -106,6 +88,27 @@
       console.log(position)
       displayTodos();
     }
+
+    function edit(event) {
+      var newTodotext = prompt();
+
+      if (newTodotext === null || newTodotext === '') {
+        //do nothing
+      } else {
+        var position = event.currentTarget.id.split('-')[1];
+        todos[position].todoText = newTodotext;
+
+      }
+
+
+      // var position = editPositionInput.value;
+      // var newValue = editTextInput.value;
+      // editPositionInput.value = '';
+      // editTextInput.value = '';
+
+      displayTodos();
+    }
+
 
     function displayTodos() {
 
@@ -130,6 +133,13 @@
         //creating an id for each item so the event listener on the remove button has a link from button to item
         removeButton.id = 'remove-' + i;
 
+        //create edit button
+        var editButton = document.createElement('button');
+        editButton.innerText = 'Edit';
+        editButton.id = 'edit-' + i;
+        editButton.addEventListener('click', edit);
+        // editButton.id = 'edit-' + i;
+
 
         var toggleButton = document.createElement('button');
         toggleButton.innerText = 'Toggle';
@@ -142,6 +152,7 @@
         console.log(toggleButton)
 
         todoLi.appendChild(toggleButton);
+        todoLi.appendChild(editButton);
         todoLi.appendChild(removeButton);
         todoListUl.appendChild(todoLi);
       }
@@ -155,19 +166,6 @@
     var addButton = document.getElementById('add-button');
     var addInput = document.getElementById('add-input');
     addButton.addEventListener('click', add);
-
-    var editButton = document.getElementById('edit-button');
-    var editPositionInput = document.getElementById('edit-position-input');
-    var editTextInput = document.getElementById('edit-text-input');
-    editButton.addEventListener('click', edit);
-
-    // var removeButton = document.getElementById('remove-button');
-    // var removePositionInput = document.getElementById('remove-position-input');
-    // removeButton.addEventListener('click', remove);
-
-    // var toggleButton = document.getElementById('toggle-button');
-    // var togglePositionInput = document.getElementById('toggle-position-input');
-    // toggleButton.addEventListener('click', toggle);
   </script>
 </body>
 
